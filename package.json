@@ -2,7 +2,7 @@
   "name": "movie-info",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kevinwww111.github.io/movie-info",
+  "homepage": "https://kevinwww111.github.io/113-1-TKU-midreact",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
