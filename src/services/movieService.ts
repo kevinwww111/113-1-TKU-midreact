@@ -9,7 +9,7 @@ export interface Movie {
   
   // API 基本配置
   const API_URL = 'https://api.themoviedb.org/3/movie';
-  const API_KEY = 'your_api_key_here'; // 請替換為你的 TMDB API 金鑰
+  const API_KEY = 'a1b4e5017eaecc98bb96575c12d1c4d3'; // 請替換為你的 TMDB API 金鑰
   
   /**
    * 從 TMDB API 獲取熱門電影列表
