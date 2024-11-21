@@ -1,42 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import './MovieList.css';
+import React from 'react';
+import { Movie } from '../types';
 
-type Movie = {
-  id: number;
-  title: string;
-  releaseDate: string;
-  overview: string;
+type MovieListProps = {
+  movies: Movie[];
+  onMovieSelect: (movie: Movie) => void;
 };
 
-const MovieList: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      setLoading(true);
-      const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=YOUR_API_KEY');
-      const data = await response.json();
-      setMovies(data.results);
-      setLoading(false);
-    };
-    fetchMovies();
-  }, []);
-
+const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
   return (
     <div className="movie-list">
-      {loading ? (
-        <p>Loading movies...</p>
-      ) : (
-        <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>
-              <h2>{movie.title}</h2>
-              <p>{movie.releaseDate}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      {movies.map((movie) => (
+        <div
+          key={movie.id}
+          className="movie-card"
+          onClick={() => onMovieSelect(movie)}
+        >
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movie.posterPath}`}
+            alt={movie.title}
+            className="movie-poster"
+          />
+          <h3>{movie.title}</h3>
+        </div>
+      ))}
     </div>
   );
 };
