@@ -5,7 +5,7 @@ import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 import Footer from './components/Footer';
 import './App.css';
-import { getUpcomingMovies } from './services/movieService'; // 引入 movieService 的函数
+import { fetchUpcomingMovies } from './services/movieService';  // 引入你的服务
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -13,16 +13,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      try {
-        const upcomingMovies = await getUpcomingMovies(); // 调用 API 获取数据
-        setMovies(upcomingMovies);
-      } catch (error) {
-        console.error('Failed to fetch movies:', error);
-      }
+      const upcomingMovies = await fetchUpcomingMovies();  // 获取即将上映的电影
+      setMovies(upcomingMovies);  // 更新状态
     };
 
     fetchMovies();
-  }, []);
+  }, []);  // 空依赖数组表示只在组件挂载时运行一次
 
   return (
     <div className="App">
