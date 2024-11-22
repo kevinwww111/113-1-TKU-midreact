@@ -13,6 +13,7 @@ export const getUpcomingMovies = async (): Promise<Movie[]> => {
         page: 1,
       },
     });
+    console.log('API response:', response.data);  // 打印返回的数据
     return response.data.results.map((movie: any) => ({
       id: movie.id,
       title: movie.title,

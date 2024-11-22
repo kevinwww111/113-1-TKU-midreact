@@ -12,20 +12,21 @@ const App: React.FC = () => {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null); // 选中的电影
   const [showUpcoming, setShowUpcoming] = useState(false); // 是否显示即将上映电影
 
-  
-
   // 获取即将上映电影
   const handleUpcomingMovies = async () => {
-    console.log('Fetching upcoming movies...');
+    console.log('Fetching upcoming movies...'); // 打印日志查看是否触发
     const upcomingMovies = await getUpcomingMovies();
+    console.log('Upcoming movies:', upcomingMovies); // 打印返回的电影列表
     setMovies(upcomingMovies);
     setShowUpcoming(true);
   };
-  
+
   return (
     <div className="App">
       <Header />
-      <button onClick={handleUpcomingMovies}>Show Upcoming Movies</button> {/* 按钮来显示即将上映的电影 */}
+      {/* 确保按钮是可见的 */}
+      <button onClick={handleUpcomingMovies}>Show Upcoming Movies</button>
+      
       {selectedMovie ? (
         <MovieDetail
           title={selectedMovie.title}
