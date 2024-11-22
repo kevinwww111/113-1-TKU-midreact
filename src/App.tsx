@@ -14,9 +14,8 @@ const App: React.FC = () => {
 
   // 获取即将上映电影
   const handleUpcomingMovies = async () => {
-    console.log('Fetching upcoming movies...'); // 打印日志查看是否触发
+    console.log('Fetching upcoming movies...');
     const upcomingMovies = await getUpcomingMovies();
-    console.log('Upcoming movies:', upcomingMovies); // 打印返回的电影列表
     setMovies(upcomingMovies);
     setShowUpcoming(true);
   };
@@ -24,9 +23,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      {/* 确保按钮是可见的 */}
-      <button onClick={handleUpcomingMovies}>Show Upcoming Movies</button>
-      
+      <div className="button-container">
+        <button onClick={handleUpcomingMovies}>Show Upcoming Movies</button>
+      </div>
       {selectedMovie ? (
         <MovieDetail
           title={selectedMovie.title}

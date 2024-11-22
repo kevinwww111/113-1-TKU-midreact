@@ -37,8 +37,22 @@
   }
 }
 
+.button-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #007bff;  /* 给按钮添加背景色 */
+  border: none;               /* 去掉边框 */
+  color: white;               /* 设置文字颜色 */
+  border-radius: 4px;         /* 设置圆角 */
 }
+
+button:hover {
+  background-color: #0056b3;  /* 鼠标悬停时改变背景色 */
+}
+
