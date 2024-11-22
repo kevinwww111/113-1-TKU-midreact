@@ -1,0 +1,27 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.movie-item {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 150px;
+  border-radius: 8px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+}

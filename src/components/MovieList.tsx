@@ -1,10 +1,11 @@
 import React from 'react';
 import { Movie } from '../types';
+import './MovieList.css';
 
-type MovieListProps = {
+interface MovieListProps {
   movies: Movie[];
   onMovieSelect: (movie: Movie) => void;
-};
+}
 
 const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
   return (
@@ -12,11 +13,11 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
       {movies.map((movie) => (
         <div
           key={movie.id}
-          className="movie-card"
+          className="movie-item"
           onClick={() => onMovieSelect(movie)}
         >
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.posterPath}`}
+            src={`https://image.tmdb.org/t/p/w200${movie.posterPath}`}
             alt={movie.title}
             className="movie-poster"
           />

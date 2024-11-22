@@ -36,6 +36,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <Header />
       {selectedMovie ? (
         <MovieDetail
           title={selectedMovie.title}
@@ -50,6 +51,7 @@ const App: React.FC = () => {
           onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
         />
       )}
+      <Footer />
     </div>
   );
 };
