@@ -15,7 +15,7 @@ const App: React.FC = () => {
   // 获取即将上映的电影
   const fetchUpcomingMovies = async () => {
     try {
-      const apiKey = 'YOUR_TMDB_API_KEY'; // 替换为你的 TMDB API 密钥
+      const apiKey = 'a1b4e5017eaecc98bb96575c12d1c4d3'; // 替换为你的 TMDB API 密钥
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`
       );
