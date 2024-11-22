@@ -1,23 +1,30 @@
 import axios from 'axios';
 import { Movie } from '../types';
 
-const API_KEY = 'a1b4e5017eaecc98bb96575c12d1c4d3';  // 使用你的 TMDB API 密钥
-const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = 'a1b4e5017eaecc98bb96575c12d1c4d3';
+const API_URL = 'https://api.themoviedb.org/3/movie/upcoming';
 
-const fetchUpcomingMovies = async (): Promise<Movie[]> => {
+export const getUpcomingMovies = async (): Promise<Movie[]> => {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/upcoming`, {
+    const response = await axios.get(API_URL, {
       params: {
         api_key: API_KEY,
         language: 'en-US',
-        page: 1,  // 你可以根据需要调整页数
+        page: 1,
       },
     });
-    return response.data.results;  // 返回电影列表
+    return response.data.results.map((movie: any) => ({
+      id: movie.id,
+      title: movie.title,
+      posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      releaseDate: movie.release_date,
+      overview: movie.overview,
+    }));
   } catch (error) {
     console.error('Error fetching upcoming movies:', error);
     return [];
   }
 };
 
-export { fetchUpcomingMovies };
+
+// a1b4e5017eaecc98bb96575c12d1c4d3
