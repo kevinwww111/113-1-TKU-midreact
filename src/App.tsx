@@ -12,31 +12,6 @@ const App: React.FC = () => {
   const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]); // 存储即将上映的电影数据
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null); // 选中的电影
 
-  // 模拟加载数据的 useEffect
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const mockMovies: Movie[] = [
-        {
-          id: 1,
-          title: 'The Shawshank Redemption',
-          posterPath: '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
-          releaseDate: '1994-09-23',
-          overview: 'Two imprisoned men bond over a number of years...',
-        },
-        {
-          id: 2,
-          title: 'The Godfather',
-          posterPath: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
-          releaseDate: '1972-03-24',
-          overview: 'The aging patriarch of an organized crime dynasty...',
-        },
-      ];
-      setMovies(mockMovies);
-    };
-
-    fetchMovies();
-  }, []);
-
   // 获取即将上映的电影
   const fetchUpcomingMovies = async () => {
     try {
@@ -53,7 +28,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      
+
       {/* 按钮，点击后显示即将上映的电影 */}
       <button onClick={fetchUpcomingMovies}>Show Upcoming Movies</button>
 
