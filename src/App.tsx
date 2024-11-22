@@ -5,6 +5,7 @@ import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 import Footer from './components/Footer';
 import './App.css';
+import { getUpcomingMovies } from './services/movieService'; // 引入 movieService 的函数
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -12,23 +13,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const mockMovies: Movie[] = [
-        {
-          id: 1,
-          title: 'The Shawshank Redemption',
-          posterPath: '/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
-          releaseDate: '1994-09-23',
-          overview: 'Two imprisoned men bond over a number of years...',
-        },
-        {
-          id: 2,
-          title: 'The Godfather',
-          posterPath: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
-          releaseDate: '1972-03-24',
-          overview: 'The aging patriarch of an organized crime dynasty...',
-        },
-      ];
-      setMovies(mockMovies);
+      try {
+        const upcomingMovies = await getUpcomingMovies(); // 调用 API 获取数据
+        setMovies(upcomingMovies);
+      } catch (error) {
+        console.error('Failed to fetch movies:', error);
+      }
     };
 
     fetchMovies();
@@ -36,7 +26,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header />
       {selectedMovie ? (
         <MovieDetail
           title={selectedMovie.title}
@@ -51,7 +40,6 @@ const App: React.FC = () => {
           onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
         />
       )}
-      <Footer />
     </div>
   );
 };
