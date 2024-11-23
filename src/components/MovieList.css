@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  max-width: 400px; 
+  margin: 0 auto; 
 }
 
 .movie-item {
