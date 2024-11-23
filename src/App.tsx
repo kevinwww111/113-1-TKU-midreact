@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Movie } from './types';
 import Header from './components/Header';
-import MovieList from './components/MovieList';
+//import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 import Footer from './components/Footer';
 import './App.css';
@@ -35,10 +35,10 @@ const App: React.FC = () => {
           onClose={() => setSelectedMovie(null)}
         />
       ) : (
-        <MovieList
-          movies={movies}
-          onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
-        />
+        // <MovieList
+        //  movies={movies}
+        //  onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
+        // /> 
       )}
       <Footer />
     </div>
