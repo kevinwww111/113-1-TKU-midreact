@@ -13,11 +13,12 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
         <p>No upcoming movies available.</p> // 如果没有电影数据，显示此信息
       ) : (
         movies.map((movie) => (
-          <div key={movie.id} onClick={() => onMovieSelect(movie)}>
+          <div key={movie.id} className="movie-item">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
               alt={movie.title}
               style={{ width: 200 }}
+              onClick={() => onMovieSelect(movie)} // 点击事件绑定在图片上
             />
             <h3>{movie.title}</h3>
           </div>
