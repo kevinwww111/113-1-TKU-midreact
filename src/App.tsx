@@ -23,13 +23,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <button onClick={handleUpcomingMovies}>Show Upcoming Movies</button> {/* 按钮来显示即将上映的电影 */}
-      {showUpcoming && (
-        <MovieList
-          movies={movies}
-          onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
-        />
-      )}
+      <button className="upcoming-button" onClick={handleUpcomingMovies}>
+        Show Upcoming Movies
+      </button>
       {selectedMovie ? (
         <MovieDetail
           title={selectedMovie.title}
@@ -38,7 +34,12 @@ const App: React.FC = () => {
           posterPath={selectedMovie.posterPath}
           onClose={() => setSelectedMovie(null)}
         />
-      ) : null}
+      ) : (
+        <MovieList
+          movies={movies}
+          onMovieSelect={(movie: Movie) => setSelectedMovie(movie)}
+        />
+      )}
       <Footer />
     </div>
   );

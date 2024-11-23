@@ -37,6 +37,20 @@
   }
 }
 
+.upcoming-button {
+  position: absolute;
+  top: 10px; /* 距离页面顶部的距离 */
+  left: 10px; /* 距离页面左侧的距离 */
+  padding: 10px 20px; /* 按钮的内边距 */
+  font-size: 16px; /* 按钮字体大小 */
+  background-color: #007bff; /* 按钮背景颜色 */
+  color: white; /* 按钮文字颜色 */
+  border: none; /* 去掉边框 */
+  border-radius: 5px; /* 按钮圆角 */
+  cursor: pointer; /* 鼠标指针样式 */
+  z-index: 1000; /* 确保按钮显示在最前 */
+}
+
 .button-container {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -46,13 +60,13 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #007bff;  /* 给按钮添加背景色 */
-  border: none;               /* 去掉边框 */
-  color: white;               /* 设置文字颜色 */
-  border-radius: 4px;         /* 设置圆角 */
+  background-color: #007bff;  
+  border: none;             
+  color: white;               
+  border-radius: 4px;         
 }
 
-button:hover {
-  background-color: #0056b3;  /* 鼠标悬停时改变背景色 */
+.upcoming-button:hover {
+  background-color: #0056b3; /* 按钮悬停颜色 */
 }
 
