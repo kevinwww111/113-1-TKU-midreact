@@ -3,19 +3,19 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  max-width: 600px; /* 调整宽度，限制 movie-list 的最大宽度 */
-  margin: 20px auto; /* 将列表居中，并设置上下的外边距 */
-  padding: 10px; /* 添加内部间距 */
-  background-color: #e40e0e; /* 可选：添加背景颜色用于视觉效果 */
-  border-radius: 8px; /* 可选：让边角圆滑 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 可选：添加轻微阴影 */
+  max-width: 600px; 
+  margin: 20px auto; 
+  padding: 10px; 
+  background-color: #e40e0e; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .movie-item {
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease;
-  width: 120px; /* 调整每个 movie-item 的宽度 */
+  width: 120px; 
 }
 
 .movie-item:hover {
@@ -23,7 +23,7 @@
 }
 
 .movie-poster {
-  width: 100%; /* 使海报宽度适应 movie-item */
+  width: 100%; 
   border-radius: 8px;
 }
 

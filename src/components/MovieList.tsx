@@ -1,5 +1,5 @@
 import React from 'react';
-import { Movie } from '../types'; // 导入 Movie 类型
+import { Movie } from '../types'; // 導入 Movie 類型
 
 interface MovieListProps {
   movies: Movie[];
@@ -10,7 +10,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
   return (
     <div className="movie-list">
       {movies.length === 0 ? (
-        <p>No upcoming movies available.</p> // 如果没有电影数据，显示此信息
+        <p>No upcoming movies available.</p> 
       ) : (
         movies.map((movie) => (
           <div key={movie.id} className="movie-item">
@@ -18,7 +18,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieSelect }) => {
               src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
               alt={movie.title}
               style={{ width: 200 }}
-              onClick={() => onMovieSelect(movie)} // 点击事件绑定在图片上
+              onClick={() => onMovieSelect(movie)} 
             />
             <h3>{movie.title}</h3>
           </div>

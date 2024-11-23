@@ -5,19 +5,19 @@ import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 import Footer from './components/Footer';
 import './App.css';
-import { getUpcomingMovies } from './services/movieService'; // 引入获取即将上映电影的函数
+import { getUpcomingMovies } from './services/movieService'; // 引入即將上映電影函数
 
 const App: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]); // 初始为空的电影列表
-  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null); // 选中的电影
-  const [showUpcoming, setShowUpcoming] = useState(false); // 是否显示即将上映电影
+  const [movies, setMovies] = useState<Movie[]>([]); // 初始為空的電影列表
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null); // 選中的電影
+  const [showUpcoming, setShowUpcoming] = useState(false); 
 
-  // 获取即将上映电影
+  // 獲取即將上映電影
   const handleUpcomingMovies = async () => {
     console.log('Fetching upcoming movies...');
     const upcomingMovies = await getUpcomingMovies();
-    setMovies(upcomingMovies); // 更新电影列表
-    setShowUpcoming(true); // 标记显示即将上映的电影
+    setMovies(upcomingMovies); 
+    setShowUpcoming(true); 
   };
 
   return (
