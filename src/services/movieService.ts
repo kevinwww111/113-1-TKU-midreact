@@ -24,4 +24,4 @@ export const getUpcomingMovies = async (): Promise<Movie[]> => {
 };
 
 
-// a1b4e5017eaecc98bb96575c12d1c4d3
+//* a1b4e5017eaecc98bb96575c12d1c4d3
